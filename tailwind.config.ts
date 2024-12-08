@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,10 +9,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
+        bgWhite: "var(--bg-white)",
         foreground: "var(--foreground)",
+        navbarColor: "var(--navbar-color)",
+        lightGray: "var(--light-gray)",
+        darkPrimary: "var(--dark-primary)",
+        darkBlue: "var(--dark-blue)",
       },
+      fontFamily: {
+        clash: ["Clash Display", "sans-serif"],
+        clash2: ["Clash Display 2", "sans-serif"],
+        satoshi: ["Satoshi", "sans-serif"],
+      }
     },
   },
   plugins: [],
-} satisfies Config;
+};
+export default config;
