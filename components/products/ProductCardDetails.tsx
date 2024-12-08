@@ -7,6 +7,7 @@ import ProductCard from "../reuseableComponents/ProductCard";
 import Features from "../heroSection/Features";
 import SignUp from "../heroSection/SignUp";
 
+
 export async function getData() {
   const response = await fetch("/api/product");
   const data = await response.json();
