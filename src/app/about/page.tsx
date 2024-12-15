@@ -1,20 +1,66 @@
-import AboutBrand from "../../../components/about/AboutBrand";
-import AboutFeatures from "../../../components/about/AboutFeatures";
-import AboutGetInTouch from "../../../components/about/AboutGetInTouch";
-import AboutSection from "../../../components/about/AboutSection";
-import AboutSignUp from "../../../components/about/AboutSignUp";
-import Footer from "../../../components/Footer";
-const About = () => {
+
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+
+import Brand from "../../../components/Brand";
+import GetinTouch from "../../../components/GetinTouch";
+import SignUp from "../../../components/SignUp";
+
+const page = () => {
   return (
-    <div className="relative mx-auto w-[390px] h-[3911px] md:w-[1440px] md:h-[2960px] bg-white">
-      <AboutSection />
-      <AboutFeatures />
-      <AboutGetInTouch />
-      <AboutBrand />
-      <AboutSignUp />
-      <Footer />
+    <div>
+      <section className="sm:h-48 w-full flex max-sm:flex-col max-sm:gap-10 max-sm:pt-10 items-center justify-between md:px-24 px-5">
+        <h1 className="sm:text-2xl text-xl font-clash text-darkPrimary sm:w-[500px] max-xxs:px-3">
+          A brand built on the love of craftmanship, quality and
+          outstanding customer service
+        </h1>
+        <Link href="/products">
+        <button className="bg-lightGray h-12 sm:w-36 w-full sm:text-sm text-xs">
+          View our products
+        </button>
+        </Link>
+      </section>
+      <ImageSection />
+      <GetinTouch
+        direction={false}
+        heading="Our service isn't just personal, it's actually hyper personally exquisite"
+        image="/about.png"
+      />
+      <Brand />
+      <SignUp />
     </div>
   );
 };
 
-export default About;
+export default page;
+const ImageSection = () => {
+  return (
+    <div className="flex mmd:px-20 px-5 max-md:flex-col sm:gap-4 gap-5 py-10">
+      <TextSection />
+      <section className="relative md:h-[450px] h-[300px] md:w-1/2 w-full">
+        <Image src="/aboutsofa.png" alt="" fill={true} className="object-cover" />
+      </section>
+    </div>
+  );
+};
+
+const TextSection = () => {
+  return (
+    <section className="md:h-[450px] max-md:gap-10 md:w-1/2 w-full bg-darkPrimary text-white sm:py-12 py-8 flex flex-col justify-between sm:px-10 px-5">
+      <div className="flex flex-col gap-8">
+        <h1 className="xs:text-2xl text-xl font-clash">
+          It started with a small idea
+        </h1>
+        <p className="max-sm:text-sm">
+        A global brand with local beginnings, our story begain in a small studio in South London in early 2014
+        </p>
+      </div>
+      <Link href="/products">
+        <button className="bg-primary h-12 md:w-36 w-full capitalize text-sm">
+        view collection
+      </button>
+      </Link>
+    </section>
+  );
+};

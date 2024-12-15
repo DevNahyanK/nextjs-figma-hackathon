@@ -1,24 +1,25 @@
-import Features from "../../components/heroSection/Features";
-import GetInTouch from "../../components/heroSection/GetInTouch";
-import Hero from "../../components/heroSection/Hero";
-import Listing from "../../components/heroSection/Listing";
-import PopularProducts from "../../components/heroSection/PopularProducts";
-
-
-import SignUp from "../../components/about/AboutSignUp";
+import Hero from "../../components/Hero";
+import Brand from "../../components/Brand";
+import NewCeramics from "../../components/NewCeramices";
+import PopularProducts from "../../components/PopularProducts";
+import SignUp from "../../components/SignUp";
+import GetinTouch from "../../components/GetinTouch";
 
 export default function Home() {
   return (
-    <div className="relative mx-auto w-[390px] h-[4500px] bg-white md:w-[1440px] md:h-[4160px]">
-      
-      <Hero />
-      <Features />
-      <Listing />
-      <PopularProducts />
-      <SignUp />
-      <GetInTouch />
-      
-      
-    </div>
+  <main className="">
+     <Hero />
+     <Brand />
+     <NewCeramics/>
+     <PopularProducts />
+     <SignUp />
+     <GetinTouch
+        direction={true}
+        heading="From a studio in London to a global brand with over 400 outlets" 
+        image="/last.png"
+      />
+     
+  </main>
+           
   );
 }
