@@ -9,27 +9,6 @@ interface CardType {
   price: string;
 }
 
-const data: CardType[] = [
-  {
-    name: "The Dandy chair",
-    price: "£250",
-    size: "single",
-    image: "/hero.png",
-  },
-  {
-    name: "Rustic Vase Set",
-    price: "£155",
-    size: "single",
-    image: "/Rustic-Vase.png",
-  },
-  {
-    name: "The Silky Vase",
-    price: "£125",
-    size: "single",
-    image: "/Silky-Vase.png",
-  },
-  { name: "The Lucy Lamp", price: "£399", size: "single", image: "/lamp.png" },
-];
 const NewCeramics = ({ heading }: { heading?: string }) => {
   return (
     <div className="w-full text-darkPrimary flex flex-col gap-6 my-16 mmd:px-10 px-5">
