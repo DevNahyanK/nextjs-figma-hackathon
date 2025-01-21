@@ -89,6 +89,7 @@ const PopularProducts = () => {
           }
         }
       }`;
+      
 
       try {
         const fetchedProducts = await client.fetch(query);
