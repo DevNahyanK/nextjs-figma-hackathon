@@ -1,31 +1,66 @@
+"use client"
 import React from "react";
 import Card from "./Card";
 import Link from "next/link";
+import { client } from "@/sanity/lib/client";
 
-interface CardType {
-  image: string;
-  size: "single" | "double";
+
+// Define the structure of the product data
+interface Product {
+  _id: string;
   name: string;
-  price: string;
+  price: number;
+  image: { asset: { url: string } };
 }
 
 const NewCeramics = ({ heading }: { heading?: string }) => {
+  const [products, setProducts] = React.useState<Product[]>([]); // Initialize state
+
+  // Fetch products from Sanity
+  React.useEffect(() => {
+    const fetchProducts = async () => {
+      const query = `*[_type == "product"][0..3] {
+        _id,
+        name,
+        price,
+        image {
+          asset -> {
+            url
+            }
+        }
+      }`;
+
+      try {
+        const fetchedProducts = await client.fetch(query); // Fetch data
+        setProducts(fetchedProducts); // Update state
+      } catch (error) {
+        console.error("Error fetching products from Sanity:", error); // Log errors
+      }
+    };
+
+    fetchProducts();
+  }, []); // Empty dependency array to run only once
+
   return (
     <div className="w-full text-darkPrimary flex flex-col gap-6 my-16 mmd:px-10 px-5">
       <h2 className="xs:text-3xl text-2xl font-clash">
         {heading ? heading : "New ceramics"}
       </h2>
       <div className="flex w-full justify-center gap-5 flex-wrap">
-        {data.map((val, ind) => (
-          <Link key={ind} href="/products/1">
-            <Card
-              image={val.image}
-              name={val.name}
-              price={val.price}
-              size={val.size}
-            />
-          </Link>
-        ))}
+        {products.length > 0 ? (
+          products.map((product) => (
+            <Link key={product._id} href={`/products/${product._id}`}>
+              <Card
+                image={product.image.asset.url}
+                name={product.name}
+                price={`£${product.price}`}
+                size="single"
+              />
+            </Link>
+          ))
+        ) : (
+          <p>Loading products...</p>
+        )}
       </div>
       <div className="w-full flex justify-center">
         <Link href="/products">
@@ -39,3 +74,66 @@ const NewCeramics = ({ heading }: { heading?: string }) => {
 };
 
 export default NewCeramics;
+
+// import React from "react";
+// import Card from "./Card";
+// import Link from "next/link";
+
+// interface CardType {
+//   image: string;
+//   size: "single" | "double";
+//   name: string;
+//   price: string;
+// }
+
+// const data: CardType[] = [
+//   {
+//     name: "The Dandy chair",
+//     price: "£250",
+//     size: "single",
+//     image: "/hero.png",
+//   },
+//   {
+//     name: "Rustic Vase Set",
+//     price: "£155",
+//     size: "single",
+//     image: "/Rustic-Vase.png",
+//   },
+//   {
+//     name: "The Silky Vase",
+//     price: "£125",
+//     size: "single",
+//     image: "/Silky-Vase.png",
+//   },
+//   { name: "The Lucy Lamp", price: "£399", size: "single", image: "/lamp.png" },
+// ];
+// const NewCeramics = ({ heading }: { heading?: string }) => {
+//   return (
+//     <div className="w-full text-darkPrimary flex flex-col gap-6 my-16 mmd:px-10 px-5">
+//       <h2 className="xs:text-3xl text-2xl font-clash">
+//         {heading ? heading : "New ceramics"}
+//       </h2>
+//       <div className="flex w-full justify-center gap-5 flex-wrap">
+//         {data.map((val, ind) => (
+//           <Link key={ind} href="/products/1">
+//             <Card
+//               image={val.image}
+//               name={val.name}
+//               price={val.price}
+  //               size={val.size}
+//             />
+//           </Link>
+//         ))}
+//       </div>
+//       <div className="w-full flex justify-center">
+//         <Link href="/products">
+//           <button className="bg-lightGray h-12 w-36 capitalize text-sm">
+//             view collection
+//           </button>
+//         </Link>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default NewCeramics;
