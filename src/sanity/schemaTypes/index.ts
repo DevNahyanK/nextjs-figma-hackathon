@@ -1,6 +1,6 @@
 import { type SchemaTypeDefinition } from 'sanity'
-import { product } from '../../../hackathon-template02/schema/product'
-import { Category } from '../../../hackathon-template02/schema/category'
+import { product } from './product'
+import { Category } from './category'
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
