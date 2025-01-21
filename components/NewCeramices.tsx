@@ -8,7 +8,7 @@ import { ceramices } from "@/sanity/lib/queries"
 import Card from "./Card" // Importing the Card component
 import Link from "next/link"
 
-const NewCeramices = () => {
+const NewCeramices = ({ heading }: { heading?: string }) => {
   const [product, setProduct] = useState<Product[]>([])
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const NewCeramices = () => {
   return (
     <div className="w-full text-darkPrimary flex flex-col gap-6 my-16 mmd:px-10 px-5">
       <h2 className="xs:text-3xl text-2xl font-clash">
-        New Ceramics
+        {heading ? heading : "New ceramics"}
       </h2>
       <div className="flex w-full justify-center gap-5 flex-wrap">
         {product.map((prod) => (
