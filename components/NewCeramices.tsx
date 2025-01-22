@@ -102,18 +102,18 @@ return (
             <div key={product._id}
             className="border border-gray-100 rounded-md p-4 flex flex-col items-center"
             >
-                {product.name}
+                {product.productName}
                 {product.image && (
                     <Image
                     src={urlFor(product.image).url()}
-                    alt={product.name}
+                    alt={product.productName}
                     width={200}
                     height={200}
                     className="w-full h-auto"/>
                     
                 )}
                 <div className="mt-4 text-center">
-                <h2 className="font-medium text-lg">{product.name}</h2>
+                <h2 className="font-medium text-lg">{product.productName}</h2>
                 <p className="font-bold mt-1">
                     {product.price ? `$${product.price}`: "Price not available"}
                 
