@@ -15,13 +15,18 @@ const Header = () => {
         <h1 className="capitalize text-2xl font-clash">avion</h1>
         </Link>
         <span className="flex gap-4 items-center">
-          {[ IoCartOutline, FaRegUserCircle].map((Icon, ind) =>(
-            <Link key={ind} href={`${ind === 1 ? "/cart" : "/"}`}>
-            <Icon className={`${ind === 0 ? "sm:hidden" : "max-xs:hidden"} h-5 w-5 `}/>
-            </Link>
-          ))}
-          <MobileNavbar/>
-        </span>
+  {[IoCartOutline, FaRegUserCircle].map((Icon, ind) => (
+    <Link key={ind} href={`${ind === 0 ? "/cart" : "/"}`}>
+      {/* Conditionally hide the icons */}
+      <Icon
+        className={`${
+          ind === 0 ? "hidden sm:block" : "max-xs:hidden"
+        } h-5 w-5`}
+      />
+    </Link>
+  ))}
+  <MobileNavbar />
+</span>
       </header>
 <LowerHeader />
 </>
