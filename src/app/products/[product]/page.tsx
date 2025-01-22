@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div>
       <ProductPage/>
-      <NewCeramics heading='You might also like'/>
+      <NewCeramics />
       <Brand/>
       <SignUp/>
     </div>
