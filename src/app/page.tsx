@@ -6,6 +6,7 @@ import GetinTouch from "../../components/GetinTouch";
 import PopularProducts from "../../components/PopularProducts";
 
 
+
 export default function Home() {
   return (
   <main className="">
