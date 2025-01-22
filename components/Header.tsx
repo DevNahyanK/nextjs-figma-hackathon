@@ -1,7 +1,7 @@
 import React from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
-import { IoIosSearch } from "react-icons/io";
+// import { IoIosSearch } from "react-icons/io";
 import MobileNavbar from "./MobileNavbar";
 import Link from "next/link";
 import SearchComponent from "./Search";
