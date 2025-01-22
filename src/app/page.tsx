@@ -4,6 +4,7 @@ import NewCeramics from "../../components/NewCeramices";
 import SignUp from "../../components/SignUp";
 import GetinTouch from "../../components/GetinTouch";
 import PopularProducts from "../../components/PopularProducts";
+// import OurProduct from "../../components/ourProduct";
 
 
 

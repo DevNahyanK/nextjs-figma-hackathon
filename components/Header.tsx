@@ -15,7 +15,7 @@ const Header = () => {
         <h1 className="capitalize text-2xl font-clash">avion</h1>
         </Link>
         <span className="flex gap-4 items-center">
-          {[SearchComponent, IoCartOutline, FaRegUserCircle].map((Icon, ind) =>(
+          {[ IoCartOutline, FaRegUserCircle].map((Icon, ind) =>(
             <Link key={ind} href={`${ind === 1 ? "/cart" : "/"}`}>
             <Icon className={`${ind === 0 ? "sm:hidden" : "max-xs:hidden"} h-5 w-5 `}/>
             </Link>
