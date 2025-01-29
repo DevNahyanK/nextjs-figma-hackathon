@@ -15,6 +15,7 @@ export interface Product {
       _type: "reference";
     };
   };
+  _id: string;
   price: number; // Price of the product
   quantity?: number; // Quantity available (optional, with minimum value 0)
   tags?: string[]; // Array of tags (optional)
