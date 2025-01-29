@@ -1,10 +1,9 @@
 import Hero from "../../components/Hero";
 import Brand from "../../components/Brand";
-import NewCeramics from "../../components/NewCeramices";
 import SignUp from "../../components/SignUp";
 import GetinTouch from "../../components/GetinTouch";
 import PopularProducts from "../../components/PopularProducts";
-// import OurProduct from "../../components/ourProduct";
+import NewCeramices from "../../components/NewCeramices";
 
 
 
@@ -13,8 +12,8 @@ export default function Home() {
   <main className="">
      <Hero />
      <Brand />
-     <NewCeramics />
-     <PopularProducts />
+     <NewCeramices /> 
+          <PopularProducts />
      <SignUp />
      <GetinTouch
         direction={true}
